@@ -1,0 +1,18 @@
+mango\.relations package
+========================
+
+.. automodule:: mango.relations
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   mango.relations.base
+   mango.relations.collections
+   mango.relations.constants
+   mango.relations.generic
+

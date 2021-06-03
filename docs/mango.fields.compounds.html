@@ -1,0 +1,274 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mango.fields.compounds module &#8212; mango  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mango  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-mango.fields.compounds">
+<span id="mango-fields-compounds-module"></span><h1>mango.fields.compounds module<a class="headerlink" href="#module-mango.fields.compounds" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="mango.fields.compounds.Float2Field">
+<em class="property">class </em><code class="descclassname">mango.fields.compounds.</code><code class="descname">Float2Field</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Float2Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.generic.html#mango.fields.generic.FloatField" title="mango.fields.generic.FloatField"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.generic.FloatField</span></code></a></p>
+<p>The Float2Field can be used to set and retrieve double compound values.
+If the provided value is not a list containing float or integer values a
+TypeError will be raised. The fixed length of the compound is 2.</p>
+<dl class="attribute">
+<dt id="mango.fields.compounds.Float2Field.compound">
+<code class="descname">compound</code><em class="property"> = 'UV'</em><a class="headerlink" href="#mango.fields.compounds.Float2Field.compound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.compounds.Float2Field.default_value">
+<code class="descname">default_value</code><em class="property"> = (0.0, 0.0)</em><a class="headerlink" href="#mango.fields.compounds.Float2Field.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.compounds.Float2Field.validate_child_is_int_or_float">
+<code class="descname">validate_child_is_int_or_float</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Float2Field.validate_child_is_int_or_float" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.compounds.Float2Field.validate_length">
+<code class="descname">validate_length</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Float2Field.validate_length" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.compounds.Float3Field">
+<em class="property">class </em><code class="descclassname">mango.fields.compounds.</code><code class="descname">Float3Field</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Float3Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.generic.html#mango.fields.generic.FloatField" title="mango.fields.generic.FloatField"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.generic.FloatField</span></code></a></p>
+<p>The Float3Field can be used to set and retrieve double compound values.
+If the provided value is not a list containing float or integer values a
+TypeError will be raised. The fixed length of the multi is 3.</p>
+<dl class="attribute">
+<dt id="mango.fields.compounds.Float3Field.compound">
+<code class="descname">compound</code><em class="property"> = 'XYZ'</em><a class="headerlink" href="#mango.fields.compounds.Float3Field.compound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.compounds.Float3Field.default_value">
+<code class="descname">default_value</code><em class="property"> = (0.0, 0.0, 0.0)</em><a class="headerlink" href="#mango.fields.compounds.Float3Field.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.compounds.Float3Field.validate_child_is_int_or_float">
+<code class="descname">validate_child_is_int_or_float</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Float3Field.validate_child_is_int_or_float" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.compounds.Float3Field.validate_length">
+<code class="descname">validate_length</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Float3Field.validate_length" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.compounds.Degree3Field">
+<em class="property">class </em><code class="descclassname">mango.fields.compounds.</code><code class="descname">Degree3Field</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Degree3Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.generic.html#mango.fields.generic.DegreeField" title="mango.fields.generic.DegreeField"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.generic.DegreeField</span></code></a></p>
+<p>The Degree3Field can be used to set and retrieve angle compound values.
+If the provided value is not a list containing float or integer values a
+TypeError will be raised. The fixed length of the multi is 3.</p>
+<dl class="attribute">
+<dt id="mango.fields.compounds.Degree3Field.compound">
+<code class="descname">compound</code><em class="property"> = 'XYZ'</em><a class="headerlink" href="#mango.fields.compounds.Degree3Field.compound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.compounds.Degree3Field.default_value">
+<code class="descname">default_value</code><em class="property"> = (0.0, 0.0, 0.0)</em><a class="headerlink" href="#mango.fields.compounds.Degree3Field.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.compounds.Degree3Field.validate_child_is_int_or_float">
+<code class="descname">validate_child_is_int_or_float</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Degree3Field.validate_child_is_int_or_float" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.compounds.Degree3Field.validate_length">
+<code class="descname">validate_length</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Degree3Field.validate_length" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.compounds.Boolean3Field">
+<em class="property">class </em><code class="descclassname">mango.fields.compounds.</code><code class="descname">Boolean3Field</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Boolean3Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.generic.html#mango.fields.generic.BooleanField" title="mango.fields.generic.BooleanField"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.generic.BooleanField</span></code></a></p>
+<p>The Boolean3Field can be used to set and retrieve boolean compound values.
+If the provided value is not a list containing boolean values a TypeError
+will be raised. The fixed length of the multi is 3.</p>
+<dl class="attribute">
+<dt id="mango.fields.compounds.Boolean3Field.compound">
+<code class="descname">compound</code><em class="property"> = 'XYZ'</em><a class="headerlink" href="#mango.fields.compounds.Boolean3Field.compound" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.compounds.Boolean3Field.default_value">
+<code class="descname">default_value</code><em class="property"> = (True, True, True)</em><a class="headerlink" href="#mango.fields.compounds.Boolean3Field.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.compounds.Boolean3Field.validate_child_is_bool">
+<code class="descname">validate_child_is_bool</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Boolean3Field.validate_child_is_bool" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.compounds.Boolean3Field.validate_length">
+<code class="descname">validate_length</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.compounds.Boolean3Field.validate_length" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mango.fields.compounds.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mango  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

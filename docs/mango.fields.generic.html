@@ -1,0 +1,684 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mango.fields.generic module &#8212; mango  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mango  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-mango.fields.generic">
+<span id="mango-fields-generic-module"></span><h1>mango.fields.generic module<a class="headerlink" href="#module-mango.fields.generic" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="mango.fields.generic.IntegerField">
+<em class="property">class </em><code class="descclassname">mango.fields.generic.</code><code class="descname">IntegerField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.IntegerField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.base.html#mango.fields.base.Field" title="mango.fields.base.Field"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.base.Field</span></code></a></p>
+<p>The IntegerField can be used to set and retrieve integer values. If the
+provided value is not a integer a TypeError will be raised.</p>
+<dl class="attribute">
+<dt id="mango.fields.generic.IntegerField.default_value">
+<code class="descname">default_value</code><em class="property"> = 0</em><a class="headerlink" href="#mango.fields.generic.IntegerField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.IntegerField.get_plug_value">
+<code class="descname">get_plug_value</code><span class="sig-paren">(</span><em>plug</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.IntegerField.get_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.IntegerField.mfn">
+<code class="descname">mfn</code><a class="headerlink" href="#mango.fields.generic.IntegerField.mfn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.IntegerField.mfn_type">
+<code class="descname">mfn_type</code><a class="headerlink" href="#mango.fields.generic.IntegerField.mfn_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.IntegerField.set_plug_value">
+<code class="descname">set_plug_value</code><span class="sig-paren">(</span><em>modifier</em>, <em>plug</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.IntegerField.set_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modifier</strong> (<em>OpenMaya.MDGModifier</em>) – </li>
+<li><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </li>
+<li><strong>value</strong> (<em>int</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.IntegerField.validate_integer">
+<code class="descname">validate_integer</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.IntegerField.validate_integer" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a integer.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.generic.EnumField">
+<em class="property">class </em><code class="descclassname">mango.fields.generic.</code><code class="descname">EnumField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.EnumField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.base.html#mango.fields.base.Field" title="mango.fields.base.Field"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.base.Field</span></code></a></p>
+<p>The EnumField can be used to set and retrieve choice values. These values
+can be of any type and are provided in the choices when initializing the
+field. On the node EnumFields will always be stored as integers. But it is
+possible to provide dictionaries or lists too as a choice. If a list is
+provided integer values will automatically be assigned to the return
+value. If a dictionary is provided the integer value is used as a mapper
+between the keys and the values.</p>
+<dl class="method">
+<dt id="mango.fields.generic.EnumField.create">
+<code class="descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.EnumField.create" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Attribute</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MObject</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.EnumField.default">
+<code class="descname">default</code><span class="sig-paren">(</span><em>index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.EnumField.default" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int/None</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Default value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int/None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.EnumField.default_value">
+<code class="descname">default_value</code><em class="property"> = None</em><a class="headerlink" href="#mango.fields.generic.EnumField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.EnumField.enum_keys">
+<code class="descname">enum_keys</code><a class="headerlink" href="#mango.fields.generic.EnumField.enum_keys" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Enum keys</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.EnumField.enum_values">
+<code class="descname">enum_values</code><a class="headerlink" href="#mango.fields.generic.EnumField.enum_values" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Enum values</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.EnumField.get_plug_value">
+<code class="descname">get_plug_value</code><span class="sig-paren">(</span><em>plug</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.EnumField.get_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.EnumField.mfn">
+<code class="descname">mfn</code><a class="headerlink" href="#mango.fields.generic.EnumField.mfn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.EnumField.set_plug_value">
+<code class="descname">set_plug_value</code><span class="sig-paren">(</span><em>modifier</em>, <em>plug</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.EnumField.set_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modifier</strong> (<em>OpenMaya.MDGModifier</em>) – </li>
+<li><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </li>
+<li><strong>value</strong> (<em>int</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.EnumField.validate_choices">
+<code class="descname">validate_choices</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.EnumField.validate_choices" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> – When the value is not part of the provided choices.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.generic.FloatField">
+<em class="property">class </em><code class="descclassname">mango.fields.generic.</code><code class="descname">FloatField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.FloatField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.base.html#mango.fields.base.Field" title="mango.fields.base.Field"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.base.Field</span></code></a></p>
+<p>The FloatField can be used to set and retrieve double values. If the
+provided value is not a float or integer a TypeError will be raised.</p>
+<dl class="attribute">
+<dt id="mango.fields.generic.FloatField.default_value">
+<code class="descname">default_value</code><em class="property"> = 0.0</em><a class="headerlink" href="#mango.fields.generic.FloatField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.FloatField.get_plug_value">
+<code class="descname">get_plug_value</code><span class="sig-paren">(</span><em>plug</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.FloatField.get_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.FloatField.mfn">
+<code class="descname">mfn</code><a class="headerlink" href="#mango.fields.generic.FloatField.mfn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.FloatField.mfn_type">
+<code class="descname">mfn_type</code><a class="headerlink" href="#mango.fields.generic.FloatField.mfn_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.FloatField.set_plug_value">
+<code class="descname">set_plug_value</code><span class="sig-paren">(</span><em>modifier</em>, <em>plug</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.FloatField.set_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modifier</strong> (<em>OpenMaya.MDGModifier</em>) – </li>
+<li><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </li>
+<li><strong>value</strong> (<em>float</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.FloatField.validate_int_or_float">
+<code class="descname">validate_int_or_float</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.FloatField.validate_int_or_float" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a float.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.generic.DegreeField">
+<em class="property">class </em><code class="descclassname">mango.fields.generic.</code><code class="descname">DegreeField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.DegreeField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.base.html#mango.fields.base.Field" title="mango.fields.base.Field"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.base.Field</span></code></a></p>
+<p>The DegreesField can be used to set and retrieve degree values. If the
+provided value is not a float or integer a TypeError will be raised.</p>
+<dl class="attribute">
+<dt id="mango.fields.generic.DegreeField.default_value">
+<code class="descname">default_value</code><em class="property"> = 0.0</em><a class="headerlink" href="#mango.fields.generic.DegreeField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.DegreeField.get_plug_value">
+<code class="descname">get_plug_value</code><span class="sig-paren">(</span><em>plug</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.DegreeField.get_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.DegreeField.mfn">
+<code class="descname">mfn</code><a class="headerlink" href="#mango.fields.generic.DegreeField.mfn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.DegreeField.mfn_type">
+<code class="descname">mfn_type</code><a class="headerlink" href="#mango.fields.generic.DegreeField.mfn_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.DegreeField.set_plug_value">
+<code class="descname">set_plug_value</code><span class="sig-paren">(</span><em>modifier</em>, <em>plug</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.DegreeField.set_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modifier</strong> (<em>OpenMaya.MDGModifier</em>) – </li>
+<li><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </li>
+<li><strong>value</strong> (<em>float</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.DegreeField.validate_int_or_float">
+<code class="descname">validate_int_or_float</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.DegreeField.validate_int_or_float" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a float.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.generic.BooleanField">
+<em class="property">class </em><code class="descclassname">mango.fields.generic.</code><code class="descname">BooleanField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.BooleanField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.base.html#mango.fields.base.Field" title="mango.fields.base.Field"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.base.Field</span></code></a></p>
+<p>The BooleanField can be used to set and retrieve bool values. If the
+provided value is not a bool a TypeError will be raised. The boolean field
+will never be able to support a null value. A ValueError will be raised
+when its provided anyway.</p>
+<dl class="attribute">
+<dt id="mango.fields.generic.BooleanField.default_value">
+<code class="descname">default_value</code><em class="property"> = True</em><a class="headerlink" href="#mango.fields.generic.BooleanField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.BooleanField.get_plug_value">
+<code class="descname">get_plug_value</code><span class="sig-paren">(</span><em>plug</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.BooleanField.get_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.BooleanField.mfn">
+<code class="descname">mfn</code><a class="headerlink" href="#mango.fields.generic.BooleanField.mfn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.BooleanField.mfn_type">
+<code class="descname">mfn_type</code><a class="headerlink" href="#mango.fields.generic.BooleanField.mfn_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.BooleanField.set_plug_value">
+<code class="descname">set_plug_value</code><span class="sig-paren">(</span><em>modifier</em>, <em>plug</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.BooleanField.set_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modifier</strong> (<em>OpenMaya.MDGModifier</em>) – </li>
+<li><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </li>
+<li><strong>value</strong> (<em>bool</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.BooleanField.validate_bool">
+<code class="descname">validate_bool</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.BooleanField.validate_bool" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a boolean.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.generic.StringField">
+<em class="property">class </em><code class="descclassname">mango.fields.generic.</code><code class="descname">StringField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.StringField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.base.html#mango.fields.base.Field" title="mango.fields.base.Field"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.base.Field</span></code></a></p>
+<p>The StringField can be used to set and retrieve string values. If the
+provided value is not a basestring a TypeError will be raised.</p>
+<dl class="method">
+<dt id="mango.fields.generic.StringField.add_attribute_to_instance">
+<code class="descname">add_attribute_to_instance</code><span class="sig-paren">(</span><em>instance</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.StringField.add_attribute_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the field attribute to the instance. This function will take
+the fields settings into account. It is possible to create arrays,
+compounds and all sorts of other attribute types. Because default
+attributes on string attributes do not stick. We set it after the
+attribute is added.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance</strong> (<em>models.Model</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.StringField.default">
+<code class="descname">default</code><span class="sig-paren">(</span><em>index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.StringField.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default values of string attributes are not stored correctly. The
+default value will be ignored and set once the attribute is added to
+the instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.StringField.default_value">
+<code class="descname">default_value</code><em class="property"> = ''</em><a class="headerlink" href="#mango.fields.generic.StringField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.StringField.get_plug_value">
+<code class="descname">get_plug_value</code><span class="sig-paren">(</span><em>plug</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.StringField.get_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.StringField.mfn">
+<code class="descname">mfn</code><a class="headerlink" href="#mango.fields.generic.StringField.mfn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.StringField.mfn_type">
+<code class="descname">mfn_type</code><a class="headerlink" href="#mango.fields.generic.StringField.mfn_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.StringField.set_plug_value">
+<code class="descname">set_plug_value</code><span class="sig-paren">(</span><em>modifier</em>, <em>plug</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.StringField.set_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modifier</strong> (<em>OpenMaya.MDGModifier</em>) – </li>
+<li><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </li>
+<li><strong>value</strong> (<em>str</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.StringField.validate_basestring">
+<code class="descname">validate_basestring</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.StringField.validate_basestring" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a basestring.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.generic.MatrixField">
+<em class="property">class </em><code class="descclassname">mango.fields.generic.</code><code class="descname">MatrixField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.MatrixField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.base.html#mango.fields.base.Field" title="mango.fields.base.Field"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.base.Field</span></code></a></p>
+<p>The Matrix can be used to set and retrieve matrix values. The matrix
+can be get/set using the OpenMaya.MMatrix object.</p>
+<dl class="attribute">
+<dt id="mango.fields.generic.MatrixField.default_value">
+<code class="descname">default_value</code><a class="headerlink" href="#mango.fields.generic.MatrixField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.MatrixField.get_plug_value">
+<code class="descname">get_plug_value</code><span class="sig-paren">(</span><em>plug</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.MatrixField.get_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Matrix</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">OpenMaya.MMatrix</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.MatrixField.mfn">
+<code class="descname">mfn</code><a class="headerlink" href="#mango.fields.generic.MatrixField.mfn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.generic.MatrixField.mfn_type">
+<code class="descname">mfn_type</code><a class="headerlink" href="#mango.fields.generic.MatrixField.mfn_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by autodoc_mock_imports.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.MatrixField.set_plug_value">
+<code class="descname">set_plug_value</code><span class="sig-paren">(</span><em>modifier</em>, <em>plug</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.MatrixField.set_plug_value" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modifier</strong> (<em>OpenMaya.MDGModifier</em>) – </li>
+<li><strong>plug</strong> (<em>OpenMaya.MPlug</em>) – </li>
+<li><strong>value</strong> (<em>OpenMaya.MFnMatrixData/OpenMaya.MMatrix</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.generic.MatrixField.validate_matrix">
+<code class="descname">validate_matrix</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.generic.MatrixField.validate_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not either a OpenMaya.MMatrix or
+OpenMaya.MFnMatrixData object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mango.fields.generic.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mango  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+mango\.scene module
+===================
+
+.. automodule:: mango.scene
+    :members:
+    :undoc-members:
+    :show-inheritance:

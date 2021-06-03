@@ -1,0 +1,7 @@
+mango\.utils\.naming module
+===========================
+
+.. automodule:: mango.utils.naming
+    :members:
+    :undoc-members:
+    :show-inheritance:

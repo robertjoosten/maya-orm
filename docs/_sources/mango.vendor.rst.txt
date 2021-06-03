@@ -1,0 +1,15 @@
+mango\.vendor package
+=====================
+
+.. automodule:: mango.vendor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   mango.vendor.apiundo
+

@@ -1,0 +1,7 @@
+mango\.relations\.generic module
+================================
+
+.. automodule:: mango.relations.generic
+    :members:
+    :undoc-members:
+    :show-inheritance:

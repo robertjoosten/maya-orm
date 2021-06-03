@@ -1,0 +1,19 @@
+mango\.fields package
+=====================
+
+.. automodule:: mango.fields
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   mango.fields.arrays
+   mango.fields.base
+   mango.fields.compounds
+   mango.fields.generic
+   mango.fields.geometry
+

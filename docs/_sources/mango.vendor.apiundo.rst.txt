@@ -1,0 +1,7 @@
+mango\.vendor\.apiundo module
+=============================
+
+.. automodule:: mango.vendor.apiundo
+    :members:
+    :undoc-members:
+    :show-inheritance:

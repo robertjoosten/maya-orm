@@ -1,0 +1,7 @@
+mango\.fields\.arrays module
+============================
+
+.. automodule:: mango.fields.arrays
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+mango\.relations\.constants module
+==================================
+
+.. automodule:: mango.relations.constants
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+mango\.utils\.path module
+=========================
+
+.. automodule:: mango.utils.path
+    :members:
+    :undoc-members:
+    :show-inheritance:

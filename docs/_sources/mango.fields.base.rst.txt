@@ -1,0 +1,7 @@
+mango\.fields\.base module
+==========================
+
+.. automodule:: mango.fields.base
+    :members:
+    :undoc-members:
+    :show-inheritance:

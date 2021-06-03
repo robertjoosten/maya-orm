@@ -1,0 +1,15 @@
+mango\.models package
+=====================
+
+.. automodule:: mango.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   mango.models.base
+

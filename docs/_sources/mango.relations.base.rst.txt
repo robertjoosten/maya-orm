@@ -1,0 +1,7 @@
+mango\.relations\.base module
+=============================
+
+.. automodule:: mango.relations.base
+    :members:
+    :undoc-members:
+    :show-inheritance:

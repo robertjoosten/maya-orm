@@ -1,0 +1,7 @@
+mango\.fields\.compounds module
+===============================
+
+.. automodule:: mango.fields.compounds
+    :members:
+    :undoc-members:
+    :show-inheritance:

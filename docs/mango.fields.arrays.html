@@ -1,0 +1,158 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mango.fields.arrays module &#8212; mango  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mango  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-mango.fields.arrays">
+<span id="mango-fields-arrays-module"></span><h1>mango.fields.arrays module<a class="headerlink" href="#module-mango.fields.arrays" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="mango.fields.arrays.IntegerArrayField">
+<em class="property">class </em><code class="descclassname">mango.fields.arrays.</code><code class="descname">IntegerArrayField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.arrays.IntegerArrayField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.generic.html#mango.fields.generic.IntegerField" title="mango.fields.generic.IntegerField"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.generic.IntegerField</span></code></a></p>
+<p>The IntegerArrayField can be used to set and retrieve int multi values. If the
+provided value is not a list containing integer values a TypeError will be
+raised.</p>
+<dl class="attribute">
+<dt id="mango.fields.arrays.IntegerArrayField.array">
+<code class="descname">array</code><em class="property"> = True</em><a class="headerlink" href="#mango.fields.arrays.IntegerArrayField.array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.arrays.IntegerArrayField.default_value">
+<code class="descname">default_value</code><em class="property"> = None</em><a class="headerlink" href="#mango.fields.arrays.IntegerArrayField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.arrays.IntegerArrayField.validate_child_is_int">
+<code class="descname">validate_child_is_int</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.arrays.IntegerArrayField.validate_child_is_int" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.fields.arrays.FloatArrayField">
+<em class="property">class </em><code class="descclassname">mango.fields.arrays.</code><code class="descname">FloatArrayField</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.arrays.FloatArrayField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mango.fields.generic.html#mango.fields.generic.FloatField" title="mango.fields.generic.FloatField"><code class="xref py py-class docutils literal"><span class="pre">mango.fields.generic.FloatField</span></code></a></p>
+<p>The FloatArrayField can be used to set and retrieve double multi values.
+If the provided value is not a list containing float or integer values a
+TypeError will be raised.</p>
+<dl class="attribute">
+<dt id="mango.fields.arrays.FloatArrayField.array">
+<code class="descname">array</code><em class="property"> = True</em><a class="headerlink" href="#mango.fields.arrays.FloatArrayField.array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="mango.fields.arrays.FloatArrayField.default_value">
+<code class="descname">default_value</code><em class="property"> = None</em><a class="headerlink" href="#mango.fields.arrays.FloatArrayField.default_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="mango.fields.arrays.FloatArrayField.validate_child_is_int_or_float">
+<code class="descname">validate_child_is_int_or_float</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.fields.arrays.FloatArrayField.validate_child_is_int_or_float" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the value is not a list.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mango.fields.arrays.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mango  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

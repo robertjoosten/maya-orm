@@ -1,0 +1,7 @@
+mango\.utils\.decorator module
+==============================
+
+.. automodule:: mango.utils.decorator
+    :members:
+    :undoc-members:
+    :show-inheritance:

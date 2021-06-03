@@ -1,0 +1,7 @@
+mango\.managers module
+======================
+
+.. automodule:: mango.managers
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+mango\.utils\.geometry module
+=============================
+
+.. automodule:: mango.utils.geometry
+    :members:
+    :undoc-members:
+    :show-inheritance:

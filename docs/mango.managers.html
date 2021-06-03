@@ -1,0 +1,449 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>mango.managers module &#8212; mango  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mango  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-mango.managers">
+<span id="mango-managers-module"></span><h1>mango.managers module<a class="headerlink" href="#module-mango.managers" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="mango.managers.Manager">
+<em class="property">class </em><code class="descclassname">mango.managers.</code><code class="descname">Manager</code><span class="sig-paren">(</span><em>instance</em>, <em>name</em>, <em>rev_name</em>, <em>rev=False</em>, <em>cls=None</em>, <em>typed=True</em>, <em>validators=()</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.Manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mango.managers.ManagerBase" title="mango.managers.ManagerBase"><code class="xref py py-class docutils literal"><span class="pre">mango.managers.ManagerBase</span></code></a></p>
+<p>The manager class can be used to manage a set of models. It will be
+possible to add and more objects from the list and filter using keys
+and values. It is possible to manage only direct instances of a cls
+or using any of its subclasses.</p>
+<dl class="method">
+<dt id="mango.managers.Manager.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>*models</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.Manager.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over the provided models and add them to models list if they
+pass the validator checks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>models</strong> (<em>models.Model</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Added models</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple[models.Model]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.Manager.add_attribute_to_instance">
+<code class="descname">add_attribute_to_instance</code><span class="sig-paren">(</span><em>instance</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.Manager.add_attribute_to_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a connection attribute to the instance. The connection attribute
+is a maya message attribute, depending on the multi and hidden
+settings the connection will be hidden and is determined to only be a source
+or a destination. When a relation is set to be hidden the attribute
+is hidden. The attribute is controlled by a manager. This manager gets
+stored on the instance and will be returned. It is possible to specify
+if the attribute to be added is the source or destination attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>instance</strong> (<em>models.Model</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.Manager.all_iter">
+<code class="descname">all_iter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.Manager.all_iter" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Models</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">generator[models.Model]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.Manager.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.Manager.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all models from the manager.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.Manager.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.Manager.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and add an instance of the cls model using the provided keyword
+arguments. It is possible to override the class by added in cls
+keyword argument if you are with a typed manager. This cls will be
+part of the validation process to ensure that actually is matching the
+typed manager.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>kwargs</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instance</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">models.Model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.Manager.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>*models</em>, <em>**options</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.Manager.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over the provided models and remove them from the models list if
+they are part of the list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>models</strong> (<em>models.Model</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.Manager.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>*models</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.Manager.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop over the provided models and add them to models list if they
+pass the validator checks. Before this happens the original list is
+cleared.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>models</strong> (<em>tuple</em><em>[</em><em>models.Model</em><em>]</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Set models</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple[models.Model]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.managers.ManagerBase">
+<em class="property">class </em><code class="descclassname">mango.managers.</code><code class="descname">ManagerBase</code><span class="sig-paren">(</span><em>cls</em>, <em>typed=True</em>, <em>validators=()</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The manager class can be used to manage a set of models. It will be
+possible to add and more objects from the list and filter using keys
+and values. It is possible to manage only direct instances of a cls
+or using any of its subclasses.</p>
+<dl class="method">
+<dt id="mango.managers.ManagerBase.all">
+<code class="descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.all" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">All models</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[models.Model]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.all_iter">
+<code class="descname">all_iter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.all_iter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method that needs to be implemented to make sure that all
+models are found that belong to the manager.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Models</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">generator[models.Model]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and add an instance of the cls model using the provided keyword
+arguments. It is possible to override the class by added in cls
+keyword argument if you are with a typed manager. This cls will be
+part of the validation process to ensure that actually is matching the
+typed manager.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>kwargs</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instance</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">models.Model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.filter">
+<code class="descname">filter</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>The filter allows for operators to be attached to the keys. For
+example ‘name_contains’ or ‘index_ge’ it’ll require getting used to
+the name of the rich operators. The operators package is used to do
+these comparisons.</p>
+<dl class="docutils">
+<dt>Cheat sheet:</dt>
+<dd>lt: a &lt; b
+le: a &lt;= b
+eq: a == b
+ne: a != b
+gt: a &gt; b
+ge: a &gt;= b</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Filtered models</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[models.Model]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> – When the provided operator cannot be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.filter_iter">
+<code class="descname">filter_iter</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.filter_iter" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Filtered models</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">generator[models.Model]</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> – When the provided operator cannot be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.first">
+<code class="descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.first" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">First instance of the models list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">models.Model/None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.get" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">First instance of a match in the model list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">models.Model/None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.get_or_create">
+<code class="descname">get_or_create</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.get_or_create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the an existing model matching the keyword arguments. If it
+doesn’t the keyword arguments will be used to create the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Model</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">models.Model</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.length">
+<code class="descname">length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.length" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Length</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.validate_obj_is_instance">
+<code class="descname">validate_obj_is_instance</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.validate_obj_is_instance" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> (<em>model.Model</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the provided model is not an instance of the class.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mango.managers.ManagerBase.validate_obj_is_subclass">
+<code class="descname">validate_obj_is_subclass</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerBase.validate_obj_is_subclass" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> (<em>model.Model</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> – When the provided model is not a subclass of the class.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mango.managers.ManagerDefault">
+<em class="property">class </em><code class="descclassname">mango.managers.</code><code class="descname">ManagerDefault</code><span class="sig-paren">(</span><em>cls</em>, <em>typed=True</em>, <em>validators=()</em><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerDefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mango.managers.ManagerBase" title="mango.managers.ManagerBase"><code class="xref py py-class docutils literal"><span class="pre">mango.managers.ManagerBase</span></code></a></p>
+<p>The default manager is used by the types themselves. It will help manage
+the instances that belong to the type. It will not only manage any of the
+instances of the type but also any instances that have inherited from the
+type.</p>
+<dl class="method">
+<dt id="mango.managers.ManagerDefault.all_iter">
+<code class="descname">all_iter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mango.managers.ManagerDefault.all_iter" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">All models</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">generator[models.Model]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mango.managers.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mango  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

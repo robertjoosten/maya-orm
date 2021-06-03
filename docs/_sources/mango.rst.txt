@@ -1,0 +1,27 @@
+mango package
+=============
+
+.. automodule:: mango
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    mango.fields
+    mango.models
+    mango.relations
+    mango.utils
+    mango.vendor
+
+Submodules
+----------
+
+.. toctree::
+
+   mango.managers
+   mango.scene
+

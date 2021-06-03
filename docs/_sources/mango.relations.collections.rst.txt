@@ -1,0 +1,7 @@
+mango\.relations\.collections module
+====================================
+
+.. automodule:: mango.relations.collections
+    :members:
+    :undoc-members:
+    :show-inheritance:

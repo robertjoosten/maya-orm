@@ -32,14 +32,12 @@ class Field(object):
             max_value=None,
             default_value=None,
             default_value_only=False,
-            data_set=False,
             hidden=False,
             keyable=False,
             channel_box=False,
     ):
         # set keyword arguments
         self.name = name
-        self.null = False
         self.editable = editable if not default_value_only else False
         self.persist = persist
         self.choices = choices
@@ -48,7 +46,6 @@ class Field(object):
         self.default_value = default_value or self.default_value
         self.default_value_only = default_value_only
         self.hidden = hidden
-        self.data_set = data_set
         self.keyable = keyable
         self.channel_box = channel_box
 
@@ -57,7 +54,7 @@ class Field(object):
 
         if not self.editable:
             self._validators.append(self.validate_editable)
-        if self.default_value:
+        if self.default_value_only:
             self._validators.append(self.validate_default_only)
         if self.min_value is not None:
             self._validators.append(self.validate_min_value)

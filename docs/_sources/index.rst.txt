@@ -1,5 +1,5 @@
 .. mango documentation master file, created by
-   sphinx-quickstart on Thu Jun 03 10:17:04 2021.
+   sphinx-quickstart on Sun Aug 08 17:40:57 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 

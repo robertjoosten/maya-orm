@@ -1,5 +1,7 @@
+from maya import cmds
 from maya.api import OpenMaya
 
+from mango.utils import naming
 from mango.vendor import apiundo
 
 
@@ -81,6 +83,12 @@ def create_node(node_type, name=None, parent=None):
         rename_children = False
         modifier = OpenMaya.MDGModifier()
         m_object = modifier.createNode(node_type)
+
+    # create namespace
+    namespace = naming.get_namespace(name)
+    if namespace:
+        if not cmds.namespace(exists=namespace):
+            cmds.namespace(add=namespace)
 
     # rename node
     if name:

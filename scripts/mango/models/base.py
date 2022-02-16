@@ -2,6 +2,7 @@ import six
 import logging
 import importlib
 from functools import wraps
+from maya import cmds
 from maya.api import OpenMaya
 
 from mango import fields
@@ -9,6 +10,7 @@ from mango import managers
 from mango import relations
 from mango.utils import api
 from mango.utils import path
+from mango.utils import naming
 from mango.utils import decorator
 
 
@@ -406,7 +408,7 @@ class Model(object):
         :return: Equal state
         :rtype: bool
         """
-        return self.object == other.object
+        return isinstance(other, Model) and self.object == other.object
 
     def __ne__(self, other):
         """
@@ -414,7 +416,7 @@ class Model(object):
         :return: Not equal state
         :rtype: bool
         """
-        return self.object != other.object
+        return isinstance(other, Model) and self.object != other.object
 
     def __repr__(self):
         """
@@ -479,8 +481,7 @@ class Model(object):
         :return: Namespace
         :rtype: str/None
         """
-        if ":" in self.name:
-            return self.name.rsplit(":", 1)[0]
+        return naming.get_namespace(self.name)
 
     @property
     def leaf_name(self):
@@ -488,12 +489,19 @@ class Model(object):
         :return: Name
         :rtype: str
         """
-        return self.name.rsplit(":", 1)[-1]
+        return naming.get_leaf_name(self.name)
 
     def rename(self, name):
         """
         :param str name:
         """
+        # create namespace
+        namespace = naming.get_namespace(name)
+        if namespace:
+            if not cmds.namespace(exists=namespace):
+                cmds.namespace(add=namespace)
+
+        # rename node
         with api.MDGModifier() as modifier:
             modifier.renameNode(self.object, name)
 
@@ -691,6 +699,9 @@ class Model(object):
 
         for name in self.relations:
             self.delete_attribute(name)
+
+        if self.has_attribute("mango"):
+            self.delete_attribute("mango")
 
         # invalidate node by deleting the callbacks and removing the instance
         # from the caches.

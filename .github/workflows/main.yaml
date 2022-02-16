@@ -37,6 +37,7 @@ jobs:
         run: |
           wget https://bootstrap.pypa.io/pip/${{ matrix.pip }}
           mayapy get-pip.py --user
+          mayapy -m pip install six --upgrade
           mayapy -m pip install git+https://github.com/robertjoosten/maya-unittest.git@main
 
       - name: Testing

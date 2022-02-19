@@ -340,12 +340,16 @@ class EnumField(base.Field):
     default_value = None
 
     def __init__(self, choices, **kwargs):
-        keys = choices.keys() if isinstance(choices, dict) else choices[:]
-        values = choices.values() if isinstance(choices, dict) else choices[:]
-        indices = values if all([isinstance(value, int) for value in values]) else range(len(keys))
+        if not isinstance(choices, dict):
+            choices = OrderedDict((choice, choice) for choice in choices)
+
+        keys = list(choices.keys())
+        values = indices = list(choices.values())
+        if not all([isinstance(index, int) for index in indices]):
+            indices = list(range(len(choices)))
 
         self.choices = OrderedDict((str(key), i) for key, i in zip(keys + values, indices * 2))
-        self.choices_rev = {i: value for i, value in enumerate(values)}
+        self.choices_rev = {i: value for i, value in enumerate(choices.values())}
         self.choices_fields = OrderedDict((key, i) for key, i in zip(keys, indices))
         super(EnumField, self).__init__(choices=self.choices, **kwargs)
 

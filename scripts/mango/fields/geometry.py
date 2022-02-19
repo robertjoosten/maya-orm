@@ -2,6 +2,7 @@ from maya.api import OpenMaya
 
 from mango.fields import base
 from mango.utils import geometry
+from mango.utils import decorator
 
 
 __all__ = [
@@ -22,8 +23,8 @@ class NurbsCurveField(base.Field):
     mfn_type = OpenMaya.MFnData.kNurbsCurve
     default_value = geometry.create_curve_data(points=[(0, 0, 0), (0, 1, 0)])
 
-    def __init__(self, *args, **kwargs):
-        super(NurbsCurveField, self).__init__(*args, **kwargs)
+    def __init__(self, **kwargs):
+        super(NurbsCurveField, self).__init__(**kwargs)
         self._cache = None
         self._validators.append(self.validate_mfn_nurbs_curve_data)
 
@@ -99,6 +100,7 @@ class NurbsCurveField(base.Field):
 
     # ------------------------------------------------------------------------
 
+    @decorator.validator_iterate
     def validate_mfn_nurbs_curve_data(self, value):
         """
         :raise TypeError:
@@ -128,27 +130,3 @@ class NurbsCurveArrayField(NurbsCurveField):
     """
     array = True
     default_value = ()
-
-    def __init__(self, *args, **kwargs):
-        super(NurbsCurveArrayField, self).__init__(*args, **kwargs)
-
-    # ------------------------------------------------------------------------
-
-    def validate_mfn_nurbs_curve_data(self, value):
-        """
-        :raise TypeError:
-            When the children values are not either a OpenMaya.MFnNurbsCurve
-            or a OpenMaya.MObject with kNurbsCurveData reference.
-        """
-        for value_ in value:
-            m_object_state = isinstance(value_, OpenMaya.MObject)
-            mfn_nurbs_curve_state = isinstance(value_, OpenMaya.MFnNurbsCurve)
-            mfn_nurbs_curve_data_state = m_object_state and value_.hasFn(OpenMaya.MFn.kNurbsCurveData)
-            if not any([mfn_nurbs_curve_state, (m_object_state and mfn_nurbs_curve_data_state)]):
-                raise TypeError(
-                    "{} requires a 'OpenMaya.MFnNurbsCurve' or a 'OpenMaya.MObject' "
-                    "value with a link to 'kNurbsCurveData' inside of the 'list/tuple', '{}' provided.".format(
-                        self.__class__.__name__,
-                        type(value).__name__
-                    )
-                )

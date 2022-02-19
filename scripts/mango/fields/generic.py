@@ -1,7 +1,10 @@
 import six
 from maya.api import OpenMaya
+from collections import OrderedDict
 
 from mango.fields import base
+from mango.fields import mixin
+from mango.utils import decorator
 
 
 __all__ = [
@@ -15,7 +18,7 @@ __all__ = [
 ]
 
 
-class IntegerField(base.Field):
+class IntegerField(base.Field, mixin.MinMaxValidatorMixin):
     """
     The IntegerField can be used to set and retrieve integer values. If the
     provided value is not a integer a TypeError will be raised.
@@ -24,9 +27,16 @@ class IntegerField(base.Field):
     mfn_type = OpenMaya.MFnNumericData.kLong
     default_value = 0
 
-    def __init__(self, *args, **kwargs):
-        super(IntegerField, self).__init__(*args, **kwargs)
+    def __init__(self, min_value=None, max_value=None, **kwargs):
+        super(IntegerField, self).__init__(**kwargs)
+        self.min_value = min_value
+        self.max_value = max_value
+
         self._validators.append(self.validate_integer)
+        if self.min_value is not None:
+            self._validators.append(self.validate_min_value)
+        if self.max_value is not None:
+            self._validators.append(self.validate_max_value)
 
     # ------------------------------------------------------------------------
 
@@ -47,6 +57,7 @@ class IntegerField(base.Field):
 
     # ------------------------------------------------------------------------
 
+    @decorator.validator_iterate
     def validate_integer(self, value):
         """
         :raise TypeError: When the value is not a integer.
@@ -60,7 +71,7 @@ class IntegerField(base.Field):
             )
 
 
-class FloatField(base.Field):
+class FloatField(base.Field, mixin.MinMaxValidatorMixin):
     """
     The FloatField can be used to set and retrieve double values. If the
     provided value is not a float or integer a TypeError will be raised.
@@ -69,9 +80,16 @@ class FloatField(base.Field):
     mfn_type = OpenMaya.MFnNumericData.kDouble
     default_value = 0.0
 
-    def __init__(self, *args, **kwargs):
-        super(FloatField, self).__init__(*args, **kwargs)
+    def __init__(self, min_value=None, max_value=None, **kwargs):
+        super(FloatField, self).__init__(**kwargs)
+        self.min_value = min_value
+        self.max_value = max_value
+
         self._validators.append(self.validate_int_or_float)
+        if min_value is not None:
+            self._validators.append(self.validate_min_value)
+        if max_value is not None:
+            self._validators.append(self.validate_max_value)
 
     # ------------------------------------------------------------------------
 
@@ -92,9 +110,10 @@ class FloatField(base.Field):
 
     # ------------------------------------------------------------------------
 
+    @decorator.validator_iterate
     def validate_int_or_float(self, value):
         """
-        :raise TypeError: When the value is not a float.
+        :raise TypeError: When the value is not an int or float.
         """
         if not isinstance(value, (float, int)):
             raise TypeError(
@@ -105,7 +124,7 @@ class FloatField(base.Field):
             )
 
 
-class DegreeField(base.Field):
+class DegreeField(base.Field, mixin.MinMaxValidatorMixin):
     """
     The DegreesField can be used to set and retrieve degree values. If the
     provided value is not a float or integer a TypeError will be raised.
@@ -114,9 +133,16 @@ class DegreeField(base.Field):
     mfn_type = OpenMaya.MFnUnitAttribute.kAngle
     default_value = 0.0
 
-    def __init__(self, *args, **kwargs):
-        super(DegreeField, self).__init__(*args, **kwargs)
+    def __init__(self, min_value=None, max_value=None, **kwargs):
+        super(DegreeField, self).__init__(**kwargs)
+        self.min_value = min_value
+        self.max_value = max_value
+
         self._validators.append(self.validate_int_or_float)
+        if min_value is not None:
+            self._validators.append(self.validate_min_value)
+        if max_value is not None:
+            self._validators.append(self.validate_max_value)
 
     # ------------------------------------------------------------------------
 
@@ -139,9 +165,30 @@ class DegreeField(base.Field):
 
     # ------------------------------------------------------------------------
 
+    def default(self, index=None):
+        """
+        Get the default value based on an index. By default this function
+        handles four states. When a field is a compound field and the index
+        is None ( meaning the parent attribute ) no default value can be
+        present, the same goes for array attributes. Then based on the index
+        either the entire default value or the provided index of the default
+        value will be returned.
+
+        :param int/None index:
+        :return: Default value
+        """
+        default = super(DegreeField, self).default(index)
+        if default is None:
+            return default
+        else:
+            return OpenMaya.MAngle(default, OpenMaya.MAngle.kDegrees)
+
+    # ------------------------------------------------------------------------
+
+    @decorator.validator_iterate
     def validate_int_or_float(self, value):
         """
-        :raise TypeError: When the value is not a float.
+        :raise TypeError: When the value is not an int or float.
         """
         if not isinstance(value, (float, int)):
             raise TypeError(
@@ -163,8 +210,8 @@ class BooleanField(base.Field):
     mfn_type = OpenMaya.MFnNumericData.kBoolean
     default_value = True
 
-    def __init__(self, *args, **kwargs):
-        super(BooleanField, self).__init__(*args, **kwargs)
+    def __init__(self, **kwargs):
+        super(BooleanField, self).__init__(**kwargs)
         self._validators.append(self.validate_bool)
 
     # ------------------------------------------------------------------------
@@ -186,6 +233,7 @@ class BooleanField(base.Field):
 
     # ------------------------------------------------------------------------
 
+    @decorator.validator_iterate
     def validate_bool(self, value):
         """
         :raise TypeError: When the value is not a boolean.
@@ -208,8 +256,8 @@ class StringField(base.Field):
     mfn_type = OpenMaya.MFnData.kString
     default_value = ""
 
-    def __init__(self, *args, **kwargs):
-        super(StringField, self).__init__(*args, **kwargs)
+    def __init__(self, **kwargs):
+        super(StringField, self).__init__(**kwargs)
         self._validators.append(self.validate_basestring)
 
     # ------------------------------------------------------------------------
@@ -264,6 +312,7 @@ class StringField(base.Field):
 
     # ------------------------------------------------------------------------
 
+    @decorator.validator_iterate
     def validate_basestring(self, value):
         """
         :raise TypeError: When the value is not a basestring.
@@ -290,39 +339,15 @@ class EnumField(base.Field):
     mfn = OpenMaya.MFnEnumAttribute()
     default_value = None
 
-    def __init__(self, *args, **kwargs):
-        super(EnumField, self).__init__(*args, **kwargs)
-        self._validators.append(self.validate_choices)
+    def __init__(self, choices, **kwargs):
+        keys = choices.keys() if isinstance(choices, dict) else choices[:]
+        values = choices.values() if isinstance(choices, dict) else choices[:]
+        indices = values if all([isinstance(value, int) for value in values]) else range(len(keys))
 
-        # split keys and indices
-        self._keys = self.choices.keys() if isinstance(self.choices, dict) else self.choices[:]
-        self._values = self.choices.values() if isinstance(self.choices, dict) else self.choices[:]
-        self._indices = self._values \
-            if all([isinstance(value, int) for value in self._values]) \
-            else range(len(self._keys))
-
-        # get enum keys and values
-        self._enum_keys = {str(key): i for key, i in zip(self._keys + self._values, self._indices * 2)}
-        self._enum_values = {i: value for i, value in enumerate(self._values)}
-        self.default_value = self._keys[0] if self.default_value is None else self.default_value
-
-    # ------------------------------------------------------------------------
-
-    @property
-    def enum_keys(self):
-        """
-        :return: Enum keys
-        :rtype: dict
-        """
-        return self._enum_keys
-
-    @property
-    def enum_values(self):
-        """
-        :return: Enum values
-        :rtype: dict
-        """
-        return self._enum_values
+        self.choices = OrderedDict((str(key), i) for key, i in zip(keys + values, indices * 2))
+        self.choices_rev = {i: value for i, value in enumerate(values)}
+        self.choices_fields = OrderedDict((key, i) for key, i in zip(keys, indices))
+        super(EnumField, self).__init__(choices=self.choices, **kwargs)
 
     # ------------------------------------------------------------------------
 
@@ -331,7 +356,7 @@ class EnumField(base.Field):
         :param OpenMaya.MPlug plug:
         :return:
         """
-        return self.enum_values[plug.asInt()]
+        return self.choices_rev[plug.asInt()]
 
     def set_plug_value(self, modifier, plug, value):
         """
@@ -339,7 +364,7 @@ class EnumField(base.Field):
         :param OpenMaya.MPlug plug:
         :param int value:
         """
-        index = self.enum_keys[str(value)]
+        index = self.choices[str(value)]
         modifier.newPlugValueInt(plug, index)
 
     # ------------------------------------------------------------------------
@@ -350,9 +375,7 @@ class EnumField(base.Field):
         :return: Default value
         :rtype: int/None
         """
-        default_value = super(EnumField, self).default(index)
-        if default_value is not None:
-            return self.enum_keys.get(default_value, 0)
+        return None
 
     def create(self):
         """
@@ -360,28 +383,14 @@ class EnumField(base.Field):
         :rtype: OpenMaya.MObject
         """
         attribute = super(EnumField, self).create()
-        for key, index in self.enum_keys.items():
+        for key, index in self.choices_fields.items():
             self.mfn.addField(key, index)
 
+        default_value = super(EnumField, self).default()
+        if default_value is not None:
+            self.mfn.default = self.choices.get(default_value, 0)
+
         return attribute
-
-    # ------------------------------------------------------------------------
-
-    def validate_choices(self, value):
-        """
-        :raise RuntimeError: When the value is not part of the provided choices.
-        """
-        try:
-            self.enum_keys[str(value)]
-        except KeyError:
-            raise RuntimeError(
-                "{} '{}' value '{}' is not a valid choice, options are: {}".format(
-                    self.__class__.__name__,
-                    self.name,
-                    value,
-                    self._keys
-                )
-            )
 
 
 class MatrixField(base.Field):
@@ -393,8 +402,8 @@ class MatrixField(base.Field):
     mfn_type = OpenMaya.MFnMatrixAttribute.kDouble
     default_value = OpenMaya.MMatrix()
 
-    def __init__(self, *args, **kwargs):
-        super(MatrixField, self).__init__(*args, **kwargs)
+    def __init__(self, **kwargs):
+        super(MatrixField, self).__init__(**kwargs)
         self._validators.append(self.validate_matrix)
 
     # ------------------------------------------------------------------------
@@ -420,6 +429,7 @@ class MatrixField(base.Field):
 
     # ------------------------------------------------------------------------
 
+    @decorator.validator_iterate
     def validate_matrix(self, value):
         """
         :raise TypeError:

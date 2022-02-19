@@ -46,3 +46,19 @@ def memoize(func):
     wrapper.pop = pop
     return wrapper
 
+
+def validator_iterate(validator):
+    """
+    This decorator can be used on field validator to iterate the value and
+    run the validator method on individual components
+    """
+    @wraps(validator)
+    def wrapper(field, value):
+        if field.array or field.compound:
+            for v in value:
+                validator(field, v)
+        else:
+            validator(field, value)
+
+    return wrapper
+

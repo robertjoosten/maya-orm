@@ -28,8 +28,6 @@ class Field(object):
             editable=True,
             persist=True,
             choices=None,
-            min_value=None,
-            max_value=None,
             default_value=None,
             default_value_only=False,
             hidden=False,
@@ -41,13 +39,31 @@ class Field(object):
         self.editable = editable if not default_value_only else False
         self.persist = persist
         self.choices = choices
-        self.min_value = min_value
-        self.max_value = max_value
-        self.default_value = default_value or self.default_value
         self.default_value_only = default_value_only
         self.hidden = hidden
         self.keyable = keyable
         self.channel_box = channel_box
+
+        if choices and not isinstance(choices, (list, tuple, dict, set)):
+            raise TypeError(
+                "{} requires a 'list', 'tuple' 'dict' or 'set' value, '{}' provided.".format(
+                    self.__class__.__name__,
+                    type(self.choices).__name__
+                )
+            )
+
+        if self.choices and default_value is None:
+            self.default_value = next(iter(self.choices))
+        elif default_value is not None:
+            self.default_value = default_value
+
+        if self.choices and self.default_value not in self.choices:
+            raise ValueError(
+                "{} requires a default value that is part of the choices, options are {}.".format(
+                    self.__class__.__name__,
+                    self.choices,
+                )
+            )
 
         # set default validators
         self._validators = []
@@ -56,10 +72,10 @@ class Field(object):
             self._validators.append(self.validate_editable)
         if self.default_value_only:
             self._validators.append(self.validate_default_only)
-        if self.min_value is not None:
-            self._validators.append(self.validate_min_value)
-        if self.max_value is not None:
-            self._validators.append(self.validate_max_value)
+        if self.choices:
+            self._validators.append(self.validate_choices)
+        if self.compound:
+            self._validators.append(self.validate_compound)
         if self.array or self.compound:
             self._validators.append(self.validate_list_or_tuple)
 
@@ -157,7 +173,8 @@ class Field(object):
                 return self.set_plug_value(modifier, plug_, value_)
 
         # run validators
-        for validator in self.validators[bool(initialize):]:
+        start_index = int(not self.editable and initialize)
+        for validator in self.validators[start_index:]:
             validator(value)
 
         # get plug
@@ -320,31 +337,29 @@ class Field(object):
                 )
             )
 
-    def validate_min_value(self, value):
+    def validate_choices(self, value):
         """
         :raise ValueError:
-            When the value is not bigger than the provided min value.
+            When the value is not part of the provided choices.
         """
-        if self.min_value is not None and self.min_value > value:
+        if value not in self.choices:
             raise ValueError(
-                "{} value '{}' is smaller than minimum value '{}'".format(
+                "{} '{}' value '{}' is not a valid choice, options are: {}".format(
                     self.__class__.__name__,
+                    self.name,
                     value,
-                    self.min_value
+                    self.choices
                 )
             )
 
-    def validate_max_value(self, value):
+    def validate_compound(self, value):
         """
-        :raise ValueError:
-            When the value is not smaller than the provided max value.
+        :raise ValueError: When value length doesn't match compound
         """
-        if self.max_value is not None and self.max_value < value:
+        if self.compound and len(value) != len(self.compound):
             raise ValueError(
-                "{} value '{}' is bigger than maximum value '{}'".format(
-                    self.__class__.__name__,
-                    value,
-                    self.max_value
+                "{} requires a 'list/tuple' with a length of {}.".format(
+                    self.__class__.__name__, len(self.compound)
                 )
             )
 

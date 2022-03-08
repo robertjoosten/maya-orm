@@ -4,7 +4,6 @@ import importlib
 from functools import wraps
 from maya import cmds
 from maya.api import OpenMaya
-from six.moves.collections_abc import Sequence
 
 from mango import fields
 from mango import managers
@@ -365,7 +364,7 @@ class Model(object):
             manager = relation.add_manager_to_instance(self)
             if key in kwargs:
                 values = kwargs.pop(key) if key in kwargs else None
-                values = values if isinstance(values, Sequence) else [values]
+                values = values if isinstance(values, (list, tuple, set)) else [values]
                 manager.set(*values)
 
         # add fields

@@ -345,8 +345,23 @@ class Manager(ManagerBase):
             plug = get_plug_element(plug)
             connections[int(not self.rev)] = plug
 
-            # connect plugs
+            source_plug, target_plug = connections
             with api.MDGModifier() as modifier:
+                # disconnect plugs
+                if source_plug.isConnected and source_plug.isDynamic:
+                    for destination in source_plug.destinations():
+                        if destination.isElement:
+                            modifier.removeMultiInstance(destination, True)
+                        else:
+                            modifier.disconnect(source_plug, destination)
+                if target_plug.isConnected:
+                    source = target_plug.source()
+                    if source.isElement:
+                        modifier.removeMultiInstance(source, True)
+                    else:
+                        modifier.disconnect(source, target_plug)
+
+                # connect plugs
                 modifier.connect(*connections)
 
             models_added.append(model)
@@ -382,21 +397,25 @@ class Manager(ManagerBase):
 
         # get plugs
         plug = self.instance.get_plug(self.name)
+        objects = [model.object for model in models]
 
         with api.MDGModifier() as modifier:
             # delete connections
             if plug.isArray:
                 for index in plug.getExistingArrayAttributeIndices():
                     plug_element = plug.elementByLogicalIndex(index)
+                    plug_element_clear = False
                     for plug_connected in plug_element.connectedTo(self.rev, not self.rev):
-                        if remove_all or plug_connected.node() in models:
+                        if remove_all or plug_connected.node() in objects:
                             if plug.isElement:
                                 modifier.removeMultiInstance(plug_connected, True)
+                            plug_element_clear = True
 
-                    modifier.removeMultiInstance(plug_element, True)
+                    if plug_element_clear:
+                        modifier.removeMultiInstance(plug_element, True)
             else:
                 for plug_connected in plug.connectedTo(self.rev, not self.rev):
-                    if remove_all or plug_connected.node() in models:
+                    if remove_all or plug_connected.node() in objects:
                         if plug.isElement:
                             modifier.removeMultiInstance(plug_connected, True)
                         else:

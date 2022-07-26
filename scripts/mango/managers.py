@@ -1,5 +1,6 @@
 import six
 import abc
+import inspect
 import logging
 import operator
 from maya.api import OpenMaya
@@ -110,7 +111,7 @@ class ManagerBase(object):
         # function. If no function is found we assume eq.
         mapper = []
         for key, value in kwargs.items():
-            if key.count("__"):
+            if key.find("__") > 0:
                 # get operator
                 key, func_name = key.split("__", 1)
                 func = getattr(operator, func_name)
@@ -126,7 +127,20 @@ class ManagerBase(object):
 
         # filter objects
         for obj in self.all_iter():
-            if all([func(getattr(obj, key, None), value) for key, value, func in mapper]):
+            matches = []
+
+            for key, match_value, func in mapper:
+                try:
+                    obj_value = getattr(obj, key, None)
+                    if inspect.isfunction(obj_value) or inspect.ismethod(obj_value):
+                        obj_value = obj_value()
+
+                    matches.append(func(obj_value, match_value))
+                except Exception as e:
+                    matches.append(False)
+                    log.debug(str(e))
+
+            if all(matches):
                 yield obj
 
     def filter(self, **kwargs):

@@ -122,7 +122,7 @@ class ModelMeta(type):
                 if key in RESERVED:
                     raise RuntimeError("Field name '{}' is reserved.".format(key))
 
-                value.name = key
+                value.name = value.name or key
                 attrs["fields"][key] = value
 
             # extract relationships
@@ -139,7 +139,7 @@ class ModelMeta(type):
                 elif rev_name in RESERVED:
                     raise RuntimeError("Relation rev name '{}' is reserved.".format(key))
 
-                value.name = key
+                value.name = value.name or key
                 value.rev_name = rev_name
                 attrs["relations"][key] = value
 
